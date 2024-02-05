@@ -1,0 +1,23 @@
+bits 64
+
+section	.data
+	message db "Hello World!", 10 ; 10 correspond au saut a la ligne
+
+section .text
+	global _start
+	_start:
+		mov rax, 1 ; sys_write
+		mov rdi, 1 ; stdout
+		mov rsi, message ; recuperation message
+		mov rdx, 13 ; taille message
+
+		; commande finale : write(1, message, 13)
+
+		syscall
+
+		mov rax, 60	; sys_exit
+		mov rdi, 0
+
+		; commande finale : exit (0)
+
+		syscall

@@ -2,9 +2,9 @@
 
 NAME = asm
 
-SRCS = Hello_world.a
+SRCS = return_param.asm
 
-OBJS = Hello_world.o
+OBJS = return_param.o
 
 CC = nasm
 
@@ -17,7 +17,7 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME):
-	@echo "\033[0;32m [OK] \033[0m       \033[0;33m Compiling:\033[0m" $<
+	@echo "\033[0;32m [OK] \033[0m       \033[0;33m Compiling:\033[0m" $(OBJS)
 	@$(CC) $(CFLAGS) $(SRCS) -o $(OBJS)
 	@$(LINK) $(OBJS) -o $(NAME)
 	@echo "\033[0;32m [OK] \033[0m       \033[0;33m Creating:\033[0m" $(NAME)
